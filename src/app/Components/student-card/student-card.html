@@ -1,0 +1,7 @@
+<td data-label="ID">{{ currentStudent.id }}</td>
+<td data-label="Student Name">{{ currentStudent.student_name }}</td>
+<td data-label="Email">{{ currentStudent.email }}</td>
+<td data-label="Enrolled">{{ currentStudent.enrollmentdate | date:'shortDate' }}</td>
+<td data-label="Action">
+    <button (click)="delBtn(currentStudent.id)" class="delBtn">🗑️</button>
+</td>

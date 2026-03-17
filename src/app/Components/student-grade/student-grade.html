@@ -1,0 +1,73 @@
+<!-- 
+<td>{{ currentStudent.id }}</td>
+<td>{{ currentStudent.student_name }}</td>
+<td>{{ currentStudent.email }}</td>
+
+<td>
+    @for (g of currentStudent.grade; track $index) {
+        <div>{{ g.subject }}</div>
+    }
+</td>
+
+<td>
+    @for (g of currentStudent.grade; track $index) {
+        <div>{{ g.score }}</div>
+    }
+</td>
+
+<td>
+    {{ (currentStudent.grade[0].score) }} 
+</td>
+-->
+<div class="search-container">
+  <input type="text" placeholder="Enter Name or ID..." [(ngModel)]="searchTerm" class="search-input">
+</div>
+<div class="grade-container">
+  <table class="report-table">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Student Name</th>
+        <th>Subject</th>
+        <th>Score</th>
+        <th>CGPA</th>
+        <th>Final Grade</th>
+      </tr>
+    </thead>
+
+    @for (student of filterStudent(); track student.id) {
+    <tbody class="student-group">
+      @for (g of student.grade; track g.subject; let isFirst = $first) {
+      <tr>
+        @if (isFirst) {
+        <td [attr.rowspan]="student.grade.length">{{ student.id }}</td>
+        <td [attr.rowspan]="student.grade.length">{{ student.student_name }}</td>
+        }
+
+        <td>{{ g.subject }}</td>
+        <td>{{ g.score }}</td>
+
+        @if (isFirst) {
+        <td [attr.rowspan]="student.grade.length" class="avg-cell" [appGradeColor]="calAvg(student.grade)">
+          {{ calAvg(student.grade) | gpaCalculator }} 
+        </td>
+        <td [attr.rowspan]="student.grade.length" class="final-grade-cell">
+          @let letter = (calAvg(student.grade) | letterGrade);
+          <strong class="grade-badge" [ngClass]="{
+                  'bg-a': letter === 'A',
+                  'bg-b': letter === 'B',
+                  'bg-c': letter === 'C',
+                  'bg-d': letter === 'D',
+                  'bg-e': letter === 'E',
+                  'bg-f': letter === 'F',
+                }">
+            {{ letter }}
+          </strong>
+        </td>
+        }
+      </tr>
+      }
+    </tbody>
+    }
+  </table>
+</div>

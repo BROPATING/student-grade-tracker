@@ -1,0 +1,20 @@
+<div class="search-container">
+    <input type="text" placeholder="Enter Name or ID..." [(ngModel)]="searchTerm" class="search-input">
+</div>
+
+<table>
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Student Name</th>
+            <th>Email</th>
+            <th>Enrollment Date</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @for (student of studentList; track student.id) {
+            <tr><app-student-card [currentStudent]="student"></app-student-card></tr> 
+        }
+    </tbody>
+</table>

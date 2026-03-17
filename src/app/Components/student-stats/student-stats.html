@@ -1,0 +1,90 @@
+  <div class="stats-wrapper">
+    <div class="stats-grid" *ngIf="stats">
+      <div class="stat-card highlight">
+        <span class="stat-label">Class Average</span>
+        <h3 class="stat-value">{{ stats.classAverage | number:'1.1-1' }}%</h3>
+      </div>
+
+      <div class="stat-card" [class.danger-zone]="stats.studentsAtRiskCount > 0">
+        <span class="stat-label">Students at Risk</span>
+        <h3 class="stat-value">{{ stats.studentsAtRiskCount }}</h3>
+        <p class="stat-subtext">Below 70% average</p>
+      </div>
+
+      <div class="stat-card">
+        <span class="stat-label">Top Performer</span>
+        <h3 class="stat-name">{{ stats.highestPerformer.name }}</h3>
+        <p class="stat-subtext">{{ stats.highestPerformer.average }}%</p>
+      </div>
+
+      <div class="stat-card">
+        <span class="stat-label">Lowest Performer</span>
+        <h3 class="stat-name">{{ stats.lowestPerformer.name }}</h3>
+        <p class="stat-subtext">{{ stats.lowestPerformer.average }}%</p>
+      </div>
+    </div>
+
+    <div class="chart-section" *ngIf="stats">
+      <h3>Grade Distribution</h3>
+      <div class="distribution-bars">
+        <div class="bar-group">
+          <span class="grade-label">A</span>
+          <div class="progress-container">
+            <div class="progress-bar grade-a" [style.width.%]="(stats.gradeDistribution.countA / stats.totalStudents) * 100"></div>
+          </div>
+          <span class="count-label">{{ stats.gradeDistribution.countA }}</span>
+        </div>
+
+        <div class="bar-group">
+          <span class="grade-label">B</span>
+          <div class="progress-container">
+            <div class="progress-bar grade-b" [style.width.%]="(stats.gradeDistribution.countB / stats.totalStudents) * 100"></div>
+          </div>
+          <span class="count-label">{{ stats.gradeDistribution.countB }}</span>
+        </div>
+
+        <div class="bar-group">
+          <span class="grade-label">F</span>
+          <div class="progress-container">
+            <div class="progress-bar grade-f" [style.width.%]="(stats.gradeDistribution.countF / stats.totalStudents) * 100"></div>
+          </div>
+          <span class="count-label">{{ stats.gradeDistribution.countF }}</span>
+        </div>
+      </div>
+    </div>
+    <div class="filter-section">
+      <label for="perfFilter">Filter Students by Performance:</label>
+      <select id="perfFilter" [(ngModel)]="selectedCategory" class="custom-select">
+        <option value="All">All Students</option>
+        <option value="Excellent">Excellent (90+)</option>
+        <option value="Good">Good (80-89)</option>
+        <option value="Average">Average (70-79)</option>
+        <option value="Poor">Poor (<70)</option>
+      </select>
+    </div>
+    <div class="table-section">
+      <h3>Student List ({{selectedCategory}})</h3>
+      <table class="minimal-table">
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Student Name</th>
+            <th>Email</th>
+            <th>Enrollment Date</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          @for (student of (studentList | filterByPerformance:selectedCategory); track student.id) {
+            <tr>
+              <app-student-card [currentStudent]="student"></app-student-card>
+            </tr>
+          } @empty {
+            <tr>
+              <td colspan="5" class="empty-msg">No students found in this category.</td>
+            </tr>
+          }
+        </tbody>
+      </table>
+    </div>
+  </div>

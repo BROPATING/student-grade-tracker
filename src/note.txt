@@ -1,0 +1,66 @@
+Finalization
+    Comments
+    sweetAlert
+DashBoard
+    nav center 
+        HOME
+        LIST
+        ADD
+        GRADE
+        STATS
+    display table
+    Search based on unique id and name
+
+Todo 1
+    update card use select available id and update only grade and add subject 
+    delete button to student LIST
+    add avg field(use number Pipe) to the grade and then display grade letterGrade using pipe  
+    search(by name && Id) to student and grade list => getStudent()
+    search Field in grade
+    Pipe Settlements
+
+Next Todo 2
+    STATS
+    Pipes -> 2 Remaining
+    Filter
+
+Next Todo 3
+    add color grade (dir d)
+    Pipe 1 remaining -> GPA Calculator (Add up in grade)
+    Attach sweet sweetAlert (All Button)
+
+Last Touch
+    edit student card ?
+    Font Family
+    Comments in Formatted Way
+    DashBoard Design
+    Media Query
+    Last Check
+
+Submit 
+
+Dolly
+    Minor
+        Font-Family
+        filter search
+        By unique id and name selection (Auto increment)
+        Duplicate Error
+        Input type email
+
+    stats
+        progress Bar
+        select search (Execellent, Good, Better, Poor < 70)
+
+    student data
+        filter search
+
+    View Grade 
+        filter search
+        same width as student data table
+
+    Optional
+        Add student Card width
+        SweetAlert2
+
+    Final
+        comments

@@ -1,0 +1,62 @@
+<div class="add-container">
+
+  <!-- ADD CARD -->
+
+  <div class="form-card">
+    <h2>Add New Student</h2>
+    
+    <div class="form-section">
+      <legend>Basic Information</legend>
+      <input #sid type="number" placeholder="ID (e.g. 101)" required>
+      <input #sname type="text" placeholder="Full Name" required minlength="3">
+      <input #semail type="email" placeholder="Email Address">
+      <input #sdate type="date"> 
+    </div>
+
+    <div class="form-section">
+      <legend>Initial Grade</legend>
+      <select #ssubject>
+        <option value="English">English</option>
+        <option value="Math">Math</option>
+        <option value="Science">Science</option>
+      </select>
+      <input #sscore type="number" placeholder="Score (0-100)">
+    </div>
+
+    <button class="submit-btn" (click)="addStudent(sid.value, sname.value, semail.value, sdate.value, ssubject.value, sscore.value)">
+      Confirm & Add Student
+    </button>
+  </div>
+
+
+  <!-- UPDATE CARD -->
+
+  <div class="form-card form-update">
+    <h2>Update Student Grade</h2>
+    
+    <div class="form-section">
+      <legend>Select Student</legend>
+      <select #selectedId>
+        <option value="" disabled selected>Select Student ID</option>
+        @for (std of studentList; track std.id) {
+          <option [value]="std.id">{{ std.id }} - {{ std.student_name }}</option>
+        }
+      </select>
+    </div>
+
+    <div class="form-section">
+      <legend>Add Subject</legend>
+      <select #newSubject>
+        <option value="English">English</option>
+        <option value="Math">Math</option>
+        <option value="Science">Science</option>
+      </select>
+      <input #newScore type="number" placeholder="Enter Score">
+    </div>
+
+    <button class="submit-btn update-btn" 
+            (click)="updateStudentGrade(selectedId.value, newSubject.value, newScore.value);">
+      Add Grade to Student
+    </button>
+  </div>
+</div>

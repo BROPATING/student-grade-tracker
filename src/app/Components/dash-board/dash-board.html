@@ -1,0 +1,77 @@
+<header class="main-header">
+  <nav class="nav-container">
+    <ul class="nav-list">
+      <li class="nav-item"><a href="#" (click)="setView('home'); $event.preventDefault()"
+          [class.active]="crrView === 'home'">Home</a></li>
+      <li class="nav-item"><a href="#" (click)="setView('students'); $event.preventDefault()"
+          [class.active]="crrView === 'students'">Student List</a></li>
+      <li class="nav-item"><a href="#" (click)="setView('grade'); $event.preventDefault()"
+          [class.active]="crrView === 'grade'">Student Grade</a></li>
+      <li class="nav-item"><a href="#" (click)="setView('addStudent'); $event.preventDefault()"
+          [class.active]="crrView === 'addStudent'">Add/Update</a></li>
+      <li class="nav-item"><a href="#" (click)="setView('studentStats'); $event.preventDefault()"
+          [class.active]="crrView === 'studentStats'">Stats</a></li>
+    </ul>
+  </nav>
+</header>
+<div class="fn-sec-container">
+  @if (crrView === 'home') {
+  @if (crrView === 'home') {
+    <div class="home-dashboard">
+      <section class="hero-banner">
+        <h1>Welcome back, <span class="highlight">Instructor</span></h1>
+        <p>Manage your students, track academic performance, and analyze grade distributions in one place.</p>
+      </section>
+
+      <div class="quick-summary">
+        <div class="summary-item">
+          <i class="icon">👥</i>
+          <span>Active Students: <strong>{{ stdService.studentInfo.length }}</strong></span><br><br>
+        </div>
+      </div>
+
+      <div class="action-grid">
+        <div class="action-card" (click)="setView('students')">
+          <div class="card-icon blue">📋</div>
+          <h3>View List</h3>
+          <p>Browse student profiles and contact information.</p>
+        </div>
+
+        <div class="action-card" (click)="setView('grade')">
+          <div class="card-icon green">📊</div>
+          <h3>Manage Grades</h3>
+          <p>Input scores and view calculated letter grades.</p>
+        </div>
+
+        <div class="action-card" (click)="setView('addStudent')">
+          <div class="card-icon purple">➕</div>
+          <h3>Register Student</h3>
+          <p>Enroll new students or update existing records.</p>
+        </div>
+
+        <div class="action-card" (click)="setView('studentStats')">
+          <div class="card-icon orange">📈</div>
+          <h3>Analyze Stats</h3>
+          <p>View class averages and performance distribution.</p>
+        </div>
+      </div>
+    </div>
+    }
+  }
+
+  @if (crrView === 'students') {
+    <app-student-list />
+  }
+
+  @if (crrView === 'grade') {
+   <app-student-grade />
+  }
+
+  @if (crrView === 'addStudent') {
+    <app-add-student />
+  }
+
+  @if (crrView === 'studentStats') {
+    <app-student-stats />
+  }
+</div>

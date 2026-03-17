@@ -1,0 +1,493 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Angular Practice Tasks - Choose One</title>
+    <style>
+        /* VS Code Markdown Preview Style Template for Student Notes */
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans", Helvetica, Arial, sans-serif;
+            font-size: 14px;
+            line-height: 1.6;
+            color: #24292e;
+            background-color: #ffffff;
+            padding: 0 20px;
+            margin: 0 auto;
+            max-width: 980px;
+            word-wrap: break-word;
+        }
+
+        /* Headings */
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
+            font-weight: 600;
+            line-height: 1.25;
+            margin-top: 24px;
+            margin-bottom: 16px;
+        }
+
+        h1 {
+            font-size: 2em;
+            padding-bottom: 0.3em;
+            border-bottom: 1px solid #eaecef;
+        }
+
+        h2 {
+            font-size: 1.5em;
+            padding-bottom: 0.3em;
+            border-bottom: 1px solid #eaecef;
+        }
+
+        h3 {
+            font-size: 1.25em;
+        }
+
+        h4 {
+            font-size: 1em;
+        }
+
+        h5 {
+            font-size: 0.875em;
+        }
+
+        h6 {
+            font-size: 0.85em;
+            color: #6a737d;
+        }
+
+        /* Paragraphs and text */
+        p {
+            margin-top: 0;
+            margin-bottom: 16px;
+        }
+
+        /* Links */
+        a {
+            color: #0366d6;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        /* Lists */
+        ul,
+        ol {
+            padding-left: 2em;
+            margin-top: 0;
+            margin-bottom: 16px;
+        }
+
+        li+li {
+            margin-top: 0.25em;
+        }
+
+        /* Code blocks */
+        code {
+            font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace;
+            font-size: 85%;
+            background-color: rgba(27, 31, 35, 0.05);
+            padding: 0.2em 0.4em;
+            border-radius: 3px;
+        }
+
+        pre {
+            font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace;
+            font-size: 85%;
+            line-height: 1.45;
+            background-color: #f6f8fa;
+            border-radius: 3px;
+            padding: 16px;
+            overflow: auto;
+            margin-top: 0;
+            margin-bottom: 16px;
+        }
+
+        pre code {
+            background-color: transparent;
+            padding: 0;
+            font-size: 100%;
+        }
+
+        /* Blockquotes */
+        blockquote {
+            padding: 0 1em;
+            color: #6a737d;
+            border-left: 0.25em solid #dfe2e5;
+            margin: 0 0 16px 0;
+        }
+
+        blockquote> :first-child {
+            margin-top: 0;
+        }
+
+        blockquote> :last-child {
+            margin-bottom: 0;
+        }
+
+        /* Tables */
+        table {
+            border-spacing: 0;
+            border-collapse: collapse;
+            margin-top: 0;
+            margin-bottom: 16px;
+            width: 100%;
+            overflow: auto;
+        }
+
+        table th {
+            font-weight: 600;
+            padding: 6px 13px;
+            border: 1px solid #dfe2e5;
+            background-color: #f6f8fa;
+        }
+
+        table td {
+            padding: 6px 13px;
+            border: 1px solid #dfe2e5;
+        }
+
+        table tr {
+            background-color: #ffffff;
+            border-top: 1px solid #c6cbd1;
+        }
+
+        table tr:nth-child(2n) {
+            background-color: #f6f8fa;
+        }
+
+        /* Horizontal rule */
+        hr {
+            height: 0.25em;
+            padding: 0;
+            margin: 24px 0;
+            background-color: #e1e4e8;
+            border: 0;
+        }
+
+        /* Images */
+        img {
+            max-width: 100%;
+            box-sizing: content-box;
+        }
+
+        /* Strong and emphasis */
+        strong {
+            font-weight: 600;
+        }
+
+        em {
+            font-style: italic;
+        }
+
+        /* Keyboard input */
+        kbd {
+            display: inline-block;
+            padding: 3px 5px;
+            font-size: 11px;
+            line-height: 10px;
+            color: #444d56;
+            vertical-align: middle;
+            background-color: #fafbfc;
+            border: 1px solid #d1d5da;
+            border-radius: 3px;
+            box-shadow: inset 0 -1px 0 #d1d5da;
+        }
+
+        /* Task lists */
+        input[type="checkbox"] {
+            margin-right: 0.5em;
+        }
+
+        /* Definition lists */
+        dl {
+            padding: 0;
+        }
+
+        dl dt {
+            padding: 0;
+            margin-top: 16px;
+            font-size: 1em;
+            font-style: italic;
+            font-weight: 600;
+        }
+
+        dl dd {
+            padding: 0 16px;
+            margin-bottom: 16px;
+        }
+
+        /* Details/Summary */
+        details {
+            margin-bottom: 16px;
+        }
+
+        summary {
+            cursor: pointer;
+            font-weight: 600;
+        }
+
+        /* Highlight/Mark */
+        mark {
+            background-color: #fff3cd;
+            padding: 0.2em 0.4em;
+        }
+
+        .output-box {
+            background-color: #f9f9f9;
+            border: 2px solid #ddd;
+            border-left: 4px solid #4CAF50;
+            padding: 15px;
+            margin: 16px 0;
+            border-radius: 4px;
+        }
+
+        .output-box::before {
+            content: "Output:";
+            display: block;
+            font-weight: 600;
+            color: #4CAF50;
+            margin-bottom: 10px;
+            font-size: 0.9em;
+        }
+
+        /* Custom additions for task document */
+        .task-container {
+            background-color: #f6f8fa;
+            border: 1px solid #dfe2e5;
+            border-radius: 6px;
+            padding: 20px;
+            margin-bottom: 24px;
+        }
+
+        .difficulty-badge {
+            display: inline-block;
+            padding: 4px 10px;
+            border-radius: 12px;
+            font-size: 0.85em;
+            font-weight: 600;
+            margin-left: 10px;
+        }
+
+        .difficulty-intermediate {
+            background-color: #fff3cd;
+            color: #856404;
+        }
+
+        .time-estimate {
+            color: #6a737d;
+            font-size: 0.9em;
+            font-style: italic;
+            margin-bottom: 16px;
+        }
+
+        .requirements-box {
+            background-color: #e7f3ff;
+            border-left: 4px solid #0366d6;
+            padding: 15px;
+            margin: 16px 0;
+            border-radius: 4px;
+        }
+
+        .bonus-box {
+            background-color: #f0f7ff;
+            border-left: 4px solid #0969da;
+            padding: 15px;
+            margin: 16px 0;
+            border-radius: 4px;
+        }
+
+        .bonus-box::before {
+            content: "🌟 Bonus Challenges:";
+            display: block;
+            font-weight: 600;
+            color: #0969da;
+            margin-bottom: 10px;
+        }
+
+        .evaluation-box {
+            background-color: #fff5e6;
+            border-left: 4px solid #ff9800;
+            padding: 15px;
+            margin: 16px 0;
+            border-radius: 4px;
+        }
+
+        .evaluation-box::before {
+            content: "📋 Evaluation Criteria:";
+            display: block;
+            font-weight: 600;
+            color: #ff9800;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Angular Practical - 1</h1>
+
+    <hr>
+
+    <div class="task-container">
+        <h2>Student Grade Tracker </h2>
+        <h3>Project Overview</h3>
+        <p>Build a student grade tracking system where teachers can manage student information, add grades for different subjects, calculate averages, and view performance statistics with visual indicators.</p>
+
+        <div class="requirements-box">
+            <h4>Core Requirements</h4>
+            <ol>
+                <li><strong>Component Structure:</strong>
+                    <ul>
+                        <li>Create an <code>AppComponent</code> as the root</li>
+                        <li>Create a <code>StudentListComponent</code> to display all students</li>
+                        <li>Create a <code>StudentCardComponent</code> for individual student info</li>
+                        <li>Create an <code>AddStudentComponent</code> for adding new students</li>
+                        <li>Create a <code>GradeFormComponent</code> for adding grades to students</li>
+                        <li>Create a <code>StatsComponent</code> to show class statistics</li>
+                    </ul>
+                </li>
+                <li><strong>Services:</strong>
+                    <ul>
+                        <li>Create a <code>StudentService</code> with <code>providedIn: 'root'</code></li>
+                        <li>Student model should include: id, name, email, enrollmentDate, grades array (subject, score, date)</li>
+                        <li>Implement methods: <code>getStudents()</code>, <code>addStudent()</code>, <code>deleteStudent()</code>, <code>addGrade()</code>, <code>calculateAverage()</code>, <code>getLetterGrade()</code></li>
+                        <li>Create a <code>GradeCalculatorService</code> for grade calculations and statistics</li>
+                    </ul>
+                </li>
+                <li><strong>Data Binding:</strong>
+                    <ul>
+                        <li>Use <code>[(ngModel)]</code> for all form inputs (student name, email, subject, grade)</li>
+                        <li>Use property binding for button states and form validation</li>
+                        <li>Use event binding for form submissions and student actions</li>
+                        <li>Use class binding to apply success/warning/danger classes based on grades</li>
+                        <li>Use style binding for progress bars showing student performance</li>
+                        <li>Use template reference variables for form validation feedback</li>
+                    </ul>
+                </li>
+                <li><strong>Directives:</strong>
+                    <ul>
+                        <li>Use <code>*ngFor</code> with <code>trackBy</code> to display students and their grades</li>
+                        <li>Use <code>*ngIf</code> to show/hide sections (no students message, grade details, statistics)</li>
+                        <li>Use <code>*ngSwitch</code> to display different status icons based on letter grades (A, B, C, D, F)</li>
+                        <li>Use <code>ngClass</code> to apply conditional styling for grade levels</li>
+                        <li>Use <code>ngStyle</code> for dynamic width of performance bars</li>
+                    </ul>
+                </li>
+                <li><strong>Custom Directive:</strong>
+                    <ul>
+                        <li>Create a <code>GradeColorDirective</code> that automatically colors grade text based on score</li>
+                        <li>Use <code>@Input()</code> to receive the grade value</li>
+                        <li>Use <code>Renderer2</code> to apply colors (green for 90+, blue for 80-89, yellow for 70-79, orange for 60-69, red for below 60)</li>
+                    </ul>
+                </li>
+                <li><strong>Pipes:</strong>
+                    <ul>
+                        <li>Use <code>date</code> pipe for enrollment and grade dates</li>
+                        <li>Use <code>number</code> pipe to format GPA/average with 2 decimal places</li>
+                        <li>Create a custom <code>LetterGradePipe</code> that converts numeric grades to letter grades</li>
+                        <li>Create a custom <code>GpaCalculatorPipe</code> that calculates GPA from grades</li>
+                        <li>Create a custom <code>FilterByPerformancePipe</code> to filter students by grade range</li>
+                    </ul>
+                </li>
+                <li><strong>Component Communication:</strong>
+                    <ul>
+                        <li>Use <code>@Input()</code> to pass student data to child components</li>
+                        <li>Use <code>@Output()</code> with <code>EventEmitter</code> for delete student, add grade events</li>
+                        <li>Share data between components using services</li>
+                    </ul>
+                </li>
+                <li><strong>Lifecycle Hooks:</strong>
+                    <ul>
+                        <li>Use <code>ngOnInit</code> to load student data</li>
+                        <li>Use <code>ngOnChanges</code> to recalculate averages when grades change</li>
+                        <li>Use <code>ngAfterViewInit</code> if implementing any view-based calculations</li>
+                    </ul>
+                </li>
+            </ol>
+        </div>
+
+        <h3>Features to Implement</h3>
+        <ul>
+            <li>Add new students with name, email, and enrollment date</li>
+            <li>Display list of all students with their basic info and average grade</li>
+            <li>Add grades for different subjects to each student</li>
+            <li>Calculate and display overall average for each student</li>
+            <li>Convert numeric averages to letter grades (A, B, C, D, F)</li>
+            <li>Show all grades for a student with subject names and dates</li>
+            <li>Delete students from the system</li>
+            <li>Display class statistics (total students, class average, highest/lowest performer)</li>
+            <li>Visual indicators for performance levels (color-coded grades)</li>
+            <li>Filter students by performance (Excellent, Good, Average, Poor)</li>
+        </ul>
+
+        <div class="bonus-box">
+            <ul>
+                <li>Edit student information</li>
+                <li>Delete individual grades</li>
+                <li>Add grade weighting system (assignments 40%, midterm 30%, final 30%)</li>
+                <li>Implement subject-wise class averages</li>
+                <li>Add a chart/graph visualization for grade distribution (using divs and CSS)</li>
+                <li>Create a student search feature</li>
+                <li>Add validation for grade ranges (0-100) with visual feedback</li>
+                <li>Implement a "Students at Risk" section showing students with averages below 70</li>
+            </ul>
+        </div>
+
+        <div class="evaluation-box">
+            <ul>
+                <li>Component structure and proper hierarchy (20%)</li>
+                <li>Service implementation with proper business logic (15%)</li>
+                <li>All binding types implemented correctly (15%)</li>
+                <li>Effective use of all required directives (15%)</li>
+                <li>Custom directive and pipes working correctly (15%)</li>
+                <li>Parent-child communication and data flow (10%)</li>
+                <li>Code quality and Angular best practices (10%)</li>
+            </ul>
+        </div>
+    </div>
+
+    <hr>
+
+    <h2>General Guidelines for All Tasks</h2>
+    
+    <h3>Technical Requirements</h3>
+    <ul>
+        <li>Use Angular CLI to generate all components, services, directives, and pipes</li>
+        <li>Follow Angular naming conventions and file structure</li>
+        <li>Import necessary modules (FormsModule for ngModel)</li>
+        <li>Use TypeScript strict mode and proper typing</li>
+        <li>Write clean, readable, and well-commented code</li>
+    </ul>
+
+    <h3>Styling</h3>
+    <ul>
+        <li>Add basic CSS styling to make your application presentable</li>
+        <li>Use component-specific styles in each component's CSS file</li>
+        <li>Experiment with ViewEncapsulation if desired</li>
+        <li>Make the UI user-friendly and intuitive</li>
+    </ul>
+
+    <h3>Testing Your Application</h3>
+    <ul>
+        <li>Ensure all features work as expected</li>
+        <li>Test with different data scenarios (empty states, multiple items, edge cases)</li>
+        <li>Verify that all directives and pipes work correctly</li>
+        <li>Check that component communication is functioning properly</li>
+    </ul>
+
+    <h3>Submission Requirements</h3>
+    <ol>
+        <li>Create a new Angular project using <code>ng new project-name</code></li>
+        <li>Implement all required features and components</li>
+        <li>Test thoroughly to ensure everything works</li>
+        <li>Zip your project folder (exclude node_modules)</li>
+    </ol>
+
+</body>
+</html>
